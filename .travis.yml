@@ -1,0 +1,26 @@
+---
+language: python
+python: "2.7"
+
+cache: 
+  directories: 
+    - $HOME/.cache/pip
+
+services:
+  - docker
+
+before_install:
+  - sudo apt-get update -qq
+
+install:
+  - pip install ansible==2.1.0.0 ansible-container
+
+script:
+  - ansible-container --var-file ansible/roles/apache24_rpmbuilder/vars/main.yml build --from-scratch
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+     docker login -u="$DOCKERHUB_NAME" -p="$DOCKERHUB_PASS"; 
+     docker tag apache24_rpmbuilder-apache24_rpmbuilder:latest aroundthecode/apache24_rpmbuilder:6.6;
+     docker push aroundthecode/apache24_rpmbuilder:6.6;
+    fi
