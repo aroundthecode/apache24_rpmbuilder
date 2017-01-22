@@ -1,0 +1,14 @@
+---
+# Main path for the ansible-container
+base_path: "/ansible-container"
+# Main path for the ansible-container roles to be used
+roles_path: "{{base_path}}/ansible/roles"
+# Main path for the installation in the final docker image
+vol_path: "/tmp"
+# Path for the generated files into the final docker image
+output_path: "{{ vol_path }}/RPMS"
+# User running final image
+dst_user: "root"
+# Centos image tag to be used for docker
+centosver: "6.6"
+#centosver: "6.8"

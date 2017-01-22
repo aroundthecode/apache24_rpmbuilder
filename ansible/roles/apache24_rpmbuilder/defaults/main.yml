@@ -1,0 +1,69 @@
+---
+
+prereq_rpm:
+ rpm-build 
+ gcc 
+ make 
+ libtool 
+ doxygen 
+ distcache 
+ distcache-devel 
+ autoconf 
+ zlib-devel 
+ libselinux-devel 
+ libuuid-devel 
+ apr-devel 
+ apr-util-devel 
+ pcre-devel 
+ openldap-devel 
+ lua-devel 
+ libxml2-devel 
+ distcache-devel 
+ openssl-devel 
+ postgresql-devel 
+ mysql-devel 
+ sqlite-devel 
+ freetds-devel 
+ unixODBC-devel 
+ nss-devel 
+ ccache
+ curl-devel
+ perl-WWW-Curl
+ pam-devel
+
+prereq_httpd:
+ mailcap
+ perl
+ perl-Module-Pluggable
+ perl-Pod-Escapes
+ perl-Pod-Simple
+ perl-libs
+ perl-version
+ perl-libwww-perl
+ perl-WWW-Curl
+ 
+
+src_apache_ver: "2.4.20"
+src_apache_file: "httpd-{{src_apache_ver}}.tar.bz2"
+src_apache_url: "http://archive.apache.org/dist/httpd/{{src_apache_file}}"
+
+src_apr_ver: "1.5.2"
+src_apr_file: "apr-{{src_apr_ver}}.tar.bz2"
+src_apr_url: "http://it.apache.contactlab.it/apr/{{src_apr_file}}"
+
+src_apr_util_ver: "1.5.4"
+src_apr_util_file: "apr-util-{{src_apr_util_ver}}.tar.bz2"
+src_apr_util_url: "http://it.apache.contactlab.it/apr/{{src_apr_util_file}}"
+
+src_mod_security_ver: "2.9.0"
+src_mod_security_file: "modsecurity-{{src_mod_security_ver}}.tar.gz"
+src_mod_security_url: "https://www.modsecurity.org/tarball/{{src_mod_security_ver}}/{{src_mod_security_file}}"
+
+distcache_file: "distcache-1.4.5-8.5.x86_64.rpm"
+distcache_url: "http://ftp5.gwdg.de/pub/opensuse/repositories/home:/zantekk:/Server-HTTPD24/RedHat_RHEL-6/x86_64/{{distcache_file}}"
+
+distcache_devel_file: "distcache-devel-1.4.5-8.5.x86_64.rpm"
+distcache_devel_url: "http://ftp5.gwdg.de/pub/opensuse/repositories/home:/zantekk:/Server-HTTPD24/RedHat_RHEL-6/x86_64/{{distcache_devel_file}}"
+
+downloader: "yum install -y --downloadonly --downloaddir="
+downloader66: "yumdownloader --destdir="

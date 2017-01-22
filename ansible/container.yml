@@ -1,0 +1,9 @@
+version: "2"
+services:
+
+   apache24_rpmbuilder:
+     user: "{{dst_user}}"
+     image: "centos:{{centosver}}"
+     volumes:
+      - "/tmp/apache24_rpmbuilder:{{output_path}}"
+     entrypoint: ["{{vol_path}}/entrypoint.sh"]

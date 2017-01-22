@@ -1,0 +1,6 @@
+---
+
+- hosts: apache24_rpmbuilder
+  gather_facts: false
+  roles:
+    - apache24_rpmbuilder

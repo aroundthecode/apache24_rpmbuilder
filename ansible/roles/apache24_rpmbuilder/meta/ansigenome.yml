@@ -1,0 +1,24 @@
+---
+
+ansigenome_info:
+
+  authors:
+
+    - name:  'Michele Sacchetti'
+      email: 'michele dot sacchetti at aroundthecode dot org'
+
+      
+  synopsis: |
+    This role will install rpmbuilder and all prerequisites needed to compile and package apache 2.4.x sources into portable RPM binaries.
+    
+  
+  usage: This role is thought to be run within a docker container via ansible-container to build everything and simply export produced RPMs
+  
+  sample: |
+    Build image
+    ansible-container --var-file ansible/roles/apache24_rpmbuilder/vars/main.yml  build --from-scratch --service apache24_rpmbuilder
+    Run process
+    docker run -v /tmp/apache24_rpmbuilder:/tmp/RPMS apache24_rpmbuilder-apache24_rpmbuilder:latest
+    
+    
+    

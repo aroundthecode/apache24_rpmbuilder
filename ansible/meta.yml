@@ -1,0 +1,10 @@
+galaxy_info:
+  author: Michele Sacchetti
+  description: Apache 2.4 RPM builder is an ansible-container project used to compile and package apache 2.4.x into a portable RPM over a given Linux OS distro.
+  company: AroundTheCode http://aroundthecode.org
+  license: Apache icense
+
+  min_ansible_container_version: 0.2.0
+
+  tags: []
+  

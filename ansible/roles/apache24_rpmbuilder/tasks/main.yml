@@ -1,0 +1,19 @@
+
+---
+
+- name: "create folder {{vol_path}}"
+  file: path="{{item}}" state="directory" owner="{{dst_user}}" 
+  with_items:
+    - "{{vol_path}}"
+    - "{{ output_path }}/repo"
+
+- name: Synch script files
+  template: src="{{item.src}}" dest="{{item.dst}}" mode="u=rxw,g=r,o=r"
+  with_items:
+    - { src: "{{roles_path}}/apache24_rpmbuilder/templates/entrypoint.sh.tpl", dst: "{{vol_path}}/entrypoint.sh" }
+    - { src: "{{roles_path}}/apache24_rpmbuilder/templates/httpd24.repo.tpl", dst: "{{ output_path }}/httpd24.repo" }
+
+- name: copy spec files
+  copy: src="{{roles_path}}/apache24_rpmbuilder/files/{{item}}" dest="{{vol_path}}/{{item}}" mode="u=rxw,g=r,o=r"
+  with_items:
+    - "mod_security.spec"
